@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #000000;
+  --color-foreground: #e5e7eb;
+
+  --color-card: #000000;
+  --color-card-foreground: #e5e7eb;
+
+  --color-popover: #000000;
+  --color-popover-foreground: #e5e7eb;
+
+  --color-primary: #00ff00;
+  --color-primary-foreground: #000000;
+
+  --color-secondary: #10b981;
+  --color-secondary-foreground: #000000;
+
+  --color-muted: #9ca3af;
+  --color-muted-foreground: #d1d5db;
+
+  --color-accent: #22c55e;
+  --color-accent-foreground: #000000;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #10b981;
+  --color-input: #10b981;
+  --color-ring: #00ff00;
+
+  --color-chart-1: #e67e22;
+  --color-chart-2: #2d8659;
+  --color-chart-3: #1e3a5f;
+  --color-chart-4: #f1c40f;
+  --color-chart-5: #e74c3c;
+
+  --color-black-alpha-80: rgba(0, 0, 0, 0.8);
+  --color-black-alpha-60: rgba(0, 0, 0, 0.6);
+  --color-green-alpha-20: rgba(16, 185, 129, 0.2);
+  --color-green-alpha-50: rgba(16, 185, 129, 0.5);
+
+  --font-display: "IBM Plex Mono", monospace;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --chart-1: var(--color-chart-1);
+    --chart-2: var(--color-chart-2);
+    --chart-3: var(--color-chart-3);
+    --chart-4: var(--color-chart-4);
+    --chart-5: var(--color-chart-5);
+    --radius: 0.5rem;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 8rem;
+    }
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 3.75rem;
+    }
+  }
+
+  h3 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: none;
+    text-shadow: none;
+    color: var(--foreground);
+  }
+
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-family: var(--font-body);
+    line-height: 1.75;
+    font-size: 1.125rem;
+  }
+
+  .text-body-lg {
+    font-size: 1.25rem;
+  }
+
+  .text-tagline {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--primary);
+  }
+
+  @media (min-width: 768px) {
+    .text-tagline {
+      font-size: 1.5rem;
+    }
+  }
+
+  .text-button {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .text-label {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* tracking-wider */
+    color: var(--primary);
+  }
+
+  .text-binary {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    font-family: var(--font-body);
+  }
+
+  .matrix-font {
+    font-family: var(--font-body);
+  }
+
+  .matrix-border {
+    border: 2px solid var(--color-green-alpha-50);
+  }
+
+  .matrix-button {
+    border: 2px solid var(--primary);
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .matrix-button:hover {
+    background-color: var(--color-green-alpha-20);
+    color: var(--primary);
+  }
+
+  .matrix-button:active {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
+
+  .matrix-card {
+    border: 2px solid var(--color-green-alpha-50);
+    border-radius: 0.5rem;
+    background-color: var(--background);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .matrix-card:hover {
+    transform: scale(1.05);
+  }
+
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1152px; /* max-w-6xl */
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1280px; /* max-w-7xl */
+    }
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
