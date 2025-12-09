@@ -1,9 +1,6 @@
-import path from "node:path";
+import type { NextConfig } from "next";
 
-const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
-
-// حيدنا ": NextConfig" من هنا باش TypeScript يسكت
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -16,20 +13,11 @@ const nextConfig = {
       },
     ],
   },
-  
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  turbopack: {
-    rules: {
-      "*.{jsx,tsx}": {
-        loaders: [LOADER]
-      }
-    }
-  }
+  // eslint: حيدناها حيت مابقاتش خدامة هنا
+  // turbopack: حيدناها حيت هي اللي كادير Crash للـ Build
 };
 
 export default nextConfig;
