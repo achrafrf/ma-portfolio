@@ -158,8 +158,8 @@ const Hero = () => {
                                       animate={{ opacity: 1, y: 0 }}
                                       transition={{ delay: 0.2, duration: 0.8 }}
                                     >
-                                        CREATIVE<br />
-                                        <span className="glitch" data-text="DEVELOPER">DEVELOPER</span>
+                                        ACHRAF<br />
+                                        <span className="glitch" data-text="DEVELOPER">RAFIQ</span>
                                     </motion.h1>
                                     <motion.p 
                                       className="text-xl md:text-2xl text-green-400 font-body"
@@ -205,7 +205,7 @@ const Hero = () => {
                             >
                                 <div className="relative">
                                     <Image
-                                        src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/d5d3d606-bbe9-49c8-ae9b-ce8459c9429a-gn2tymhbk96d-space-minimax-io/assets/images/neo_hero-1.png"
+                                        src="/achraf.png"
                                         alt="Developer"
                                         width={448}
                                         height={448}
