@@ -16,7 +16,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
+  // هاد السطر هو اللي حيدناه
+  // outputFileTracingRoot: path.resolve(__dirname, '../../'), 
+  
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -33,4 +35,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-// Orchids restart: 1763420352579
